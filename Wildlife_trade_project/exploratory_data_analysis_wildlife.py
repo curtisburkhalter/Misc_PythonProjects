@@ -6,7 +6,7 @@
 """
 
 import pandas as pd
-import matplotlib.pyplot as plt
+import seaborn as sb
 import os 
 
 #create object file path to specify where data is stored
@@ -42,10 +42,10 @@ print(list(wildlife_df))
 wildlife_df['Year'].value_counts().plot(kind = "bar")
 #most records are from 2016
 
-#look at number of imports by class
+#look at number of imports by class using base plotting commands
 wildlife_df['Class'].value_counts().plot(kind = "bar")
 #most imports are reptiles; followed by corals, mammals and birds
 
-#more to follow
-
+#create Seaborn count plot, this is more like R's ggplot
+sb.countplot(data=wildlife_df, y = "Class")
 
